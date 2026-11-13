@@ -31,9 +31,9 @@ if st.button('확인', disabled=st.session_state.done):
         tries = st.session_state.tries
         st.session_state.msg = f'정답! {tries}번 만에 맞혔습니다.'
         st.session_state.done = True
-    if best == 0 or tries < best:
-        save_best('best.txt', tries)
-        st.session_state.msg += ' 🎉 최고 기록 갱신!'
+        if best == 0 or tries < best:
+            save_best('best.txt', tries)
+            st.session_state.msg += ' 🎉 최고 기록 갱신!'
     st.rerun()
 
 st.info(st.session_state.msg)
